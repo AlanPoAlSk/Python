@@ -38,7 +38,7 @@ students = [
 def iterateDictionary(some_list):
     for i in some_list:
         for key, value in i.items():
-            print(key,value)
+            print(key,"-" ,value)
 iterateDictionary(students)     
 
 
