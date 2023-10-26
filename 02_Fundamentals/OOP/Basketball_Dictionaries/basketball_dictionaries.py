@@ -53,14 +53,9 @@ players = [
 new_team = []
 for player_ in players:
     player = Player(player_)
-    new_team.append(player_)
-print(new_team)
-# for player in range(0,len(players)-1):
-#     new_team.append(players[player])
-#     print(f'Player {player+1} : {players[player]}')
-    
-    
-    
+    new_team.append(player)
+    print(player.name,player.age,player.position,player.team)
+        
         
 kevin = {
         "name": "Kevin Durant", 
