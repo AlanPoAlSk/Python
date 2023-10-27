@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground AS</title>
+</head>
+<body>
+<style>
+    body {
+        max-height: min-content;
+        max-width: min-content;
+        margin: auto;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        height: 100px;
+    }
+
+    h1 {
+        height: 50px;
+    }
+
+    .cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    p {
+        height: 200px;
+        width: 200px;
+        margin: 10px;
+        overflow-block: auto;
+        
+    }        
+</style>
+<div class="title">
+    <h1>Welcome!</h1>
+</div>
+<div class="cont">
+    {% for x in range(0,number) %}
+    <div>
+        <p style="background-color: lightblue;"></p>
+    </div>
+    {% endfor %}
+</body>
+</html>
