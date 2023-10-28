@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Table AS</title>
+</head>
+<body>
+
+<style>
+    body {
+        background-color: rgb(102, 152, 192);
+    }
+    .cont {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        
+    }
+
+    ul {
+        padding: 0px;
+        margin-top: 20px;
+    }
+
+    li {
+        list-style-type: none;
+        font-size: xx-large;
+        padding-top: 20px;
+        border-radius: 5%;
+    }
+
+    li  , .fname , .lname , .flname {
+    border: 3px solid darkblue;
+    height: 60px;
+    width: 350px;
+    background-color: goldenrod;
+    color: black;
+    }
+
+    .fname , .lname , .flname {
+        padding-top: 10px;
+        background-color: darkblue;
+        color: goldenrod;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 3em;
+        font-weight: bold;
+        border: 3px solid darkblue;
+    }
+
+</style>
+
+    <div class="cont">
+        <div class="first">
+            <ul>
+                <div class="fname">First Name</div>
+            {% for user in user_list %}
+                <li> {{user['first_name']}} </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="second">
+            <ul>
+                <div class="lname">Last Name</div>
+            {% for user in user_list %}
+                <li> {{user['last_name']}} </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="third">
+            <ul>
+                <div class="flname">Full Name</div>
+            {% for user in user_list %}
+                <li> {{user['first_name'] + ' ' + user['last_name'] }} </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
