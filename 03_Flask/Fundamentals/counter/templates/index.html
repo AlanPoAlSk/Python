@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    div {
+        margin: auto;
+        text-align: center;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+    }
+
+    button {
+        height: 30px;
+        width: 60px;
+        margin-right: 10px;
+    }
+
+    .buttonA {
+        background-color: aquamarine;
+
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .buttonB {
+        background-color: lightsalmon;
+    }
+
+</style>
+    <div>
+        <h2>Counter </h2>
+        <a href="/"><p> <label> {{count_num}} </label> Time(s) </p></a> 
+        <div class="buttons">
+            <form action="/count" method="POST">
+                <button class="buttonA" name="count_num" type="submit" value="{{session['count_num']}}">Click</button>
+            </form>
+            <form action="/destroy_session" method="POST">
+                <button class="buttonB" name="count_num" type="submit" value="reset">Reset</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
