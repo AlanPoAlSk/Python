@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Form AS</title>
+</head>
+<body>
+<style>
+    body {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: black;
+    }
+    .boxuser {
+        background-color: rgb(64, 125, 127);
+        height: 350px;
+        width: 500px;
+        margin: 80px 0px 0px 500px;
+        border: 2px solid whitesmoke;
+    }
+
+    h1 {
+        height: 50px;
+        width: 100px;
+        font-size: 3.5em;
+        color: rgb(38, 55, 186);
+        margin-bottom: 40px;
+        margin-left: 40px;
+    }
+
+    p , a {
+        margin-left: 40px;
+        margin-bottom: 30px;
+    }
+
+    p {
+        color: whitesmoke;
+    }
+    
+    a {
+        text-decoration: none;
+        color: rgb(38, 55, 186);
+    }
+
+    .bigger {
+        font-size: x-large;
+    }
+</style>
+    <div class="boxuser">
+        <h1> {{request.form['name']}} </h1>
+        <p class="bigger">Dojo Location : {{request.form['location']}} </p>
+        <p class="bigger">Favourite language : {{request.form['language']}} </p>
+        <p class="bigger">Comments : {{request.form['comment']}} </p>
+        <a href="/" class="bigger">Home</a>
+    </div>
+</body>
+</html>

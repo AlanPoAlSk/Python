@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM AS</title>
+    
+</head>
+<body>
+<style>
+    body {
+        height: 800px;
+        width: 800px;
+        margin: 0px 500px 0px 0px;
+        background-color: black;
+    }
+
+    .cont {
+        margin: 80px 0px 0px 600px;
+        background-color: rgb(64, 125, 127);
+        border: 4px solid whitesmoke;
+        height: 620px;
+        width: 350px;
+        color: whitesmoke;
+        font-size: larger;
+    }
+
+    .comment {
+        height: 70px;
+    }
+
+    input {
+        width: 200px;
+        height: 20px;
+    }
+
+    h2 {
+        padding-top: 20px;
+        font-size: 2.2rem;
+    }
+    h2 , .name , .location , .language , .comm , button{
+        margin: 30px 0px 0px 70px;
+    }
+
+    .comment {
+        text-align: start;
+    }
+
+    .sub {
+        height: 25px;
+        width: 80px;
+    }
+</style>
+    <div class="cont">
+        <h2>Dojo Survey</h2>
+        <form action="/user" method="POST">
+            <div class="name">
+                <label>Name:</label>
+                <br>
+                <input type="text" name="name"> 
+            </div>
+            <div class="location">
+                <label>Location:</label>
+                <br>
+                <select name="location" id="loc">
+                    <option value="select">  -- select a location --</option>
+                    <option value="chicago">Chicago</option>
+                    <option value="seattle">Seallte</option>
+                    <option value="online">Online</option>
+                    <option value="burbank">Burbank</option>
+                    <option value="bellevue">Bellevue</option>
+                </select> 
+            </div>
+            <div class="language">
+                <label>Favourite language:</label>
+                <br>
+                <select name="language">
+                    <option value="select">  -- select a language --</option>
+                    <option value="Python">Python</option>
+                    <option value="JS">JS</option>
+                    <option value="CSS">CSS</option>
+                    <option value="C#">C#</option>
+                    <option value="HTML">HTML</option>
+                </select>
+            </div>
+            <div class="comm">
+                <label>Comments:</label>
+                <br>
+                <textarea name="comment" id="com" cols="22" rows="10"></textarea>
+            </div>
+            <button class="sub">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
