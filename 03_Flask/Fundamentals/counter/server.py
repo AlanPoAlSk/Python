@@ -7,17 +7,16 @@ app.secret_key = "number"
 
 @app.route('/')
 def start():
-    count_num = session.get("count_num", 1)
+    count_num = session.get("count_num" , 1)
+    if "count_num" not in session:
+        session["count_num"] = 2
+    else:
+        session["count_num"] += 1
     print(f'Count Streak : {count_num}')
     return render_template("index.html", count_num = count_num)
 
 @app.route('/count' , methods= ['POST'])
 def click():
-    if "count_num" in session:
-        session["count_num"] += 1
-    else:
-        session["count_num"] = 1
-    print(request.form)
     return redirect('/')
 
 
