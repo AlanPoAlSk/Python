@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number AS</title>
+</head>
+<body>
+
+<style>
+    body {
+        margin: 0px 500px;
+    }
+
+    h1 {
+        width: 700px;
+    }
+
+    .boxGuess {
+        height: 150px;
+        width: 270px;
+        margin-left: 110px;
+    }
+
+    p {
+        margin-left: 100px;
+    }
+
+    input {
+        margin-left: 60px;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        margin-left: 80px;
+        padding-top: 30px;
+        color: goldenrod;
+    }
+
+    label {
+        margin-left: 105px;
+    }
+
+    button {
+        background-color: goldenrod;
+    }
+
+    .victory {
+        height: 200px;
+        width: 350px;
+        background-color: lightgreen;
+        margin-left: 70px;
+    }
+    .low , .high{
+        height: 300px;
+        width: 300px;
+        background-color: firebrick;
+        margin-left: 95px;
+    }
+
+    .toohigh , .toolow {
+        padding-left: 40px;
+        padding-top: 60px;
+        font-size: 3rem;
+    }
+
+    .vict {
+        padding-top: 40px;
+        padding-left: 20px;
+    }
+
+    .victbutton {
+        height: 40px;
+        width: 200px;
+        margin: 20px 0px 0px 75px;
+        font-size: large;
+    }
+</style>
+    <h1>Welcome to the Great Number Game!</h1>
+    <p>I am thinking of a number between 1 and 100</p>
+    {% if 'play' in session %}
+    {% if session['play'] == session['number'] %}
+    <div class="victory">
+        <h1 class="vict">You got the number!!!</h1>
+        <a href="/reset"><button class="victbutton">Play again</button></a>
+    </div>
+    {% elif session['play'] > session['number'] %}
+    <div class="high">
+        <h1 class="toohigh">Too high!!!</h1>
+    </div>
+    {% else %}
+    <div class="low">
+        <h1 class="toolow">Too low!!!</h1>
+    </div>
+    {% endif %} 
+    {% endif %}
+    <div class="boxGuess" style="background-color: rgb(64, 81, 35);">
+        <h3>Take a guess!!!</h3>
+        <form action="/play" method="POST">
+            <input name="play" type="text"> 
+            <br>
+            <label for="play"><button>Submit</button></label>
+    </div>
+        </form>
+</body>
+</html>
