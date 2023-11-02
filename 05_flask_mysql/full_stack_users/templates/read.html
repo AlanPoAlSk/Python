@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read All AS</title>
+</head>
+<body>
+<style>
+    tr , th , td {
+        border: 2px solid black;
+    }
+</style>
+    <div>
+        <h1>All Users</h1>
+    </div>
+    <a href="/new_user"> Create Profile</a>
+        <table>
+            <tr>
+                <th> Full Name</th>
+                <th>Email</th>
+                <th>Created at</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{user.first_name}} {{user.last_name}} </td>
+                <td>{{user.email}}</td> 
+                <td>{{user.created_at}}</td>
+            </tr>
+            {% endfor %}    
+        </table>
+</body>
+</html>

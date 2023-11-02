@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User AS</title>
+</head>
+<body>
+<style>
+    .table {
+        margin-left: 50px;
+    }
+
+    .em {
+        margin-left: 32px;
+    }
+
+</style>
+
+    <a href="/"> Home</a>
+    <div class="table">
+        <h2> Create Profile</h2>
+    <form action="/create_user" method="POST">
+        <div>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name">
+        </div>
+        <div>
+            <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name">
+        </div>
+        <div>
+            <label for="email" >Email:</label>
+        <input class="em" type="text" name="email">
+        </div>  
+        <br>
+        <!-- <input type="hidden" name="created_at"> -->
+        <button>SUBMIT</button>
+    </form>
+    </div>
+</body>
+</html>
