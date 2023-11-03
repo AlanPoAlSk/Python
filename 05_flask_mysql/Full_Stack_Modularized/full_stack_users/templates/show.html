@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show AS</title>
+</head>
+<body style="width: 500px; margin: auto;">
+    <div  style="display: flex; justify-content: space-between; align-items: center;">
+        <h1> User {{id}} </h1>
+        <a href="/">Home</a>
+    </div>
+    <div style="border: 2px solid black;">
+        <div style="margin-bottom: 10px;">
+            <label>Full Name : {{user.first_name}} {{user.last_name}} </label>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label>Email : {{user.email}} </label>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label>Created On : {{user.created_at}} </label>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label>Last Updated On : {{user.updated_at}} </label>
+        </div>
+    </div style="margin-bottom: 10px;">
+    <div><a href="/edit/{{user.id}}">Edit</a> | <a href="/delete/{{user.id}}">Delete</a></div>
+</body>
+</html>
