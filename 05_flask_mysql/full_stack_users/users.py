@@ -32,13 +32,59 @@ class User:
         return all_users
     
     @classmethod
+    def get_one(cls,id):
+        
+        data = {'id': id}
+        
+        query = 'SELECT * FROM user WHERE id = %(id)s'
+        
+        results = connectToMySQL('user_schema').query_db(query,data)
+        
+        if results:
+            new_user = cls(results[0])
+            return new_user
+        else :
+            return False
+        
+        
+    
+    @classmethod
     def create(cls, data):
         
         query = """
             INSERT INTO user
             (first_name, last_name, email)
-            VALUES (%(first_name)s,%(last_name)s,%(email)s)
+            VALUES (%(first_name)s,%(last_name)s,%(email)s);
         """
         
         id_of_created_row = connectToMySQL('user_schema').query_db(query,data)
         return id_of_created_row
+    
+    @classmethod
+    def show(cls,data):
+    
+        query = """
+            SELECT * FROM user;
+        """
+        results = connectToMySQL('user_schema').query_db(query,data)
+        return results
+    
+    @classmethod
+    def edit(cls,form):
+        query = """
+            UPDATE  user
+            SET first_name=%(first_name)s,last_name=%(last_name)s,email=%(email)s
+            WHERE id = %(id)s;
+        """
+        results = connectToMySQL('user_schema').query_db(query,form)
+        return results
+    
+    
+    @classmethod
+    def delete(cls,id):
+        query = """
+            DELETE FROM user
+            WHERE id =%(id)s;
+        """
+        data = {"id": id}
+        return connectToMySQL('user_schema').query_db(query, data)
