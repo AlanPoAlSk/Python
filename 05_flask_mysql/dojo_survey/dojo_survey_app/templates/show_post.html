@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Form AS</title>
+</head>
+<body>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: black;
+    }
+    .boxuser {
+        background-color: rgb(64, 125, 127);
+        height: 450px;
+        width: 600px;
+        margin: 80px 0px 0px 500px;
+        border: 2px solid whitesmoke;
+    }
+
+    h1 {
+        height: 150px;
+        width: 300px;
+        font-size: 3.5em;
+        color: rgb(38, 55, 186);
+        margin-bottom: 40px;
+        margin-left: 40px;
+    }
+
+    p , a {
+        margin-left: 40px;
+        margin-bottom: 30px;
+    }
+
+    p {
+        color: whitesmoke;
+    }
+    
+    a {
+        text-decoration: none;
+        color: rgb(38, 55, 186);
+    }
+
+    .bigger {
+        font-size: x-large;
+    }
+</style>
+    <div class="boxuser">
+        <h1> {{post.name}} </h1>
+        <p class="bigger">Dojo Location : {{post.location}} </p>
+        <p class="bigger">Favourite language : {{post.language}} </p>
+        <p class="bigger">Comments : {{post.comment}} </p>
+        <a href="/" class="bigger">Back</a>
+    </div>
+</body>
+</html>
