@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ninja AS</title>
+</head>
+<body style="margin: auto; background-color: blue;">
+    <div class="box" style="border: 2px solid black; width: 350px; height: 300px; margin: 100px 0px 0px 500px; background-color: cadetblue; font-family: Arial, Helvetica, sans-serif;box-shadow: 5px 5px 5px black;">
+        <div class="head">
+            <h1 style="margin-left: 20px;">New Ninja</h1>
+        </div>
+        <div class="info">
+            <form action="/create_ninja" method="POST">
+                <div class="dojo" style="display: flex; justify-content: safe; align-items: center;">
+                    <label for="dojo" style="margin: 10px 50px 10px 20px;">Dojo :</label>
+                    <div class="select">
+                        <select name="dojo_id" id="dojo">
+                            <option value="select">-- select --</option>
+                            {% for dojo in dojos %}
+                            <option value="{{dojo.id}}"> {{dojo.name}} </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="fname" style="display: flex; justify-content: safe; align-items: center;">
+                    <label for="fname" style="margin: 10px 10px 10px 20px;">First Name :</label>
+                    <div>
+                        <input type="text" name="first_name">
+                    </div>
+                </div>
+                <div class="lname" style="display: flex; justify-content: safe; align-items: center;">
+                    <label for="lname" style="margin: 10px 10px 10px 20px;">Last Name :</label>
+                    <div>
+                        <input type="text" name="last_name">
+                    </div>
+                </div>
+                <div class="age" style="display: flex; justify-content: safe; align-items: center;">
+                    <label for="age" style="margin: 10px 52px 10px 20px;">Age :</label>
+                    <div>
+                        <input type="text" name="age">
+                    </div>
+                </div>
+        </div>
+            <button style="margin: 10px 0px 0px 20px;">Create</button>
+            </form>
+        <div>
+            <a href="/dojos" style="margin-left: 280px;text-decoration: none;color: blue;">Home</a>
+        </div>
+    </div>
+</body>
+</html>

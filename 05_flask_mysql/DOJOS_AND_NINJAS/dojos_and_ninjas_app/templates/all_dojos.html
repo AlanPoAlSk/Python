@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Dojos AS</title>
+</head>
+<body style="margin: auto; background-color: blue;font-family: Arial, Helvetica, sans-serif;">
+    <div class="cont" style="display: flex; justify-content: space-evenly; align-items: center;">
+        <form action="/create_dojo" method="POST">
+            <div class="left" style="border: 2px solid black; height: 200px;width: 300px; text-align: center; background-color: cadetblue;box-shadow: 5px 5px 5px black;">
+                <h1>New Dojo</h1>
+                <div class="inp" >
+                    <label for="name" style="font-size: x-large;">Name :</label>
+                    <input type="text" name="dojo_name">
+                    <div style="margin-top: 30px;">
+                        <button style="margin-left: 15px; height: 30px;">Create Dojo</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="right" style="background-color: cadetblue; margin: 30px 0px 20px 0px; border: 2px solid black;box-shadow: 5px 5px 5px black;">
+            <div class="head">
+                <h1 style="text-align: center; padding-bottom: 20px;">All Dojos</h1>
+            </div>
+            <div class="list" style="height: 400px; width: 200px;">
+                {% for dojo in dojos %}
+                <div style="margin: 25px 0px; text-align: center;">
+                    <a href="/list_ninjas/{{dojo.id}}" style="font-size: x-large; text-decoration: none;color: whitesmoke;"> {{dojo.name}} </a>
+                </div> 
+                {% endfor %}
+                <button style="height: 40px; width: 140px; margin: 110px 0px 0px 30px;"><a href="/add_ninja" style="font-size: x-large; text-decoration: none; color: black;">Create</a></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
