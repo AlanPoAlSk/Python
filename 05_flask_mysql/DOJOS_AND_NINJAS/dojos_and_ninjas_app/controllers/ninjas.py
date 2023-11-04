@@ -15,7 +15,7 @@ def add_ninja():
 @app.route('/create_ninja', methods = ['POST'])
 def create_ninja():
     Ninja.create_ninja(request.form)
-    return redirect('/dojos')
+    return redirect('/')
 
 
 @app.route("/list_ninjas/<int:dojo_id>")

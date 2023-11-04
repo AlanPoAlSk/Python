@@ -7,6 +7,10 @@ from dojos_and_ninjas_app.config.mysqlconnection import connectToMySQL
 from dojos_and_ninjas_app.models.dojo import Dojo
 
 
+@app.route('/')
+def dojos():
+    return redirect('/dojos')
+
 @app.route('/dojos')
 def all_dojos():
     
