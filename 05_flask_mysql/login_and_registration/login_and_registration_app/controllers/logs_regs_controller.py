@@ -39,7 +39,7 @@ def log():
 def welcome():
     if not 'uuid' in session:
         return redirect('/homepage')
-    profile = Profile.show_name(id)
+    profile = Profile.show_name(session['uuid'])
     return render_template('welcome.html',profile = profile)
 
 @app.route('/logout')
