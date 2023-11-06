@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage AS</title>
+</head>
+<body style="background-color: lightblue;">
+    <div class="all" style="display: flex;justify-content: space-evenly;font-size: x-large;">
+
+        <form action="/registration" method="POST">
+            <div class="left" style="border: 2px solid black;height: 900px; width: 300px;background-color: cadetblue;">
+        
+                <h1 style="margin-left: 10px;margin-top: 30px;">Register</h1>
+                <div style="margin-left: 10px;margin-top: 20px;">
+                    {% for message in get_flashed_messages(category_filter=['name_err']) %}
+                        <p style="color: rgb(196, 0, 0); font-size: large;margin-left: 10px;"> {{message}} </p>
+                    {% endfor %}
+                    <label for="first_name" style="display: block;" >First Name :</label>
+                    <input type="text" name="first_name" style="height: 25px; width:250px;">
+                </div>
+                <div style="margin-left: 10px;margin-top: 20px;">
+                    {% for message in get_flashed_messages(category_filter=['last_name_err']) %}
+                        <p style="color: rgb(196, 0, 0);font-size: large;margin-left: 10px;"> {{message}} </p>
+                    {% endfor %}
+                    <label for="last_name" style="display: block;">Last Name :</label>
+                    <input type="text" name="last_name" style="height: 25px; width:250px;">
+                </div>
+                <div style="margin-left: 10px;margin-top: 20px;">
+                    {% for message in get_flashed_messages(category_filter=['email_err']) %}
+                        <p style="color: rgb(196, 0, 0);font-size: large;margin-left: 10px;"> {{message}} </p>
+                    {% endfor %}
+                    <label for="email" style="display: block;">Email :</label>
+                    <input type="text" name="email" style="height: 25px; width:250px;">
+                </div>
+                <div style="margin-left: 10px;margin-top: 20px;">
+                    {% for message in get_flashed_messages(category_filter=['pass_err']) %}
+                        <p style="color: rgb(196, 0, 0);font-size: large;margin-left: 10px;"> {{message}} </p>
+                    {% endfor %}
+                    <label for="password" style="display: block;">Password :</label>
+                    <input type="text" name="password" style="height: 25px; width:250px;">
+                </div>
+                <div style="margin-left: 10px;margin-top: 20px;">
+                    {% for message in get_flashed_messages(category_filter=['conf_pass_err']) %}
+                        <p style="color: rgb(196, 0, 0);font-size: large;margin-left: 10px;"> {{message}} </p>
+                    {% endfor %}
+                    <label for="confirm_password" style="display: block;">Confirm Password :</label>
+                    <input type="text" name="confirm_password" style="height: 25px; width:250px;">
+                </div>
+                <button style="margin-left: 10px;margin-top: 30px;height: 30px;width: 90px;">Register</button>
+            
+            </div>
+        </form>
+        <form action="/login" method="POST">
+            <div class="right" style="border: 2px solid black;height: 600px; width: 300px;background-color: cadetblue;">
+                <h1 style="margin-left: 10px;margin-top: 30px;">Login</h1>
+                {% for message in get_flashed_messages(category_filter=['login_err']) %}
+                    <p style="color: rgb(196, 0, 0);font-size: large;margin-left: 10px;"> {{message}} </p>
+                    {% endfor %}
+                <div style="margin-left: 10px;margin-top: 20px;">
+                    <label for="email" style="display: block;">Email :</label>
+                    <input type="text" name="email" style="height: 25px; width:250px;">
+                </div>
+                <div style="margin-left: 10px;margin-top: 20px;">
+                    <label for="password" style="display: block;">Password :</label>
+                    <input type="text" name="password" style="height: 25px; width:250px;">
+                </div>
+                <button style="margin-left: 10px;margin-top: 30px;height: 30px;width: 90px;">Login</button>
+            
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>
