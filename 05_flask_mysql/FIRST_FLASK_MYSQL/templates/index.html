@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>First Flask AS</title>
+</head>
+<body>
+    <form action="/create_friend" method="POST">
+        <label for="fname">First Name:</label>
+        <input type="text" name="fname">
+        <label for="lname">Last Name:</label>
+        <input type="text" name="lname">
+        <label for="occ" >Occupation:</label>
+        <input type="text" name="occ">
+        <input type="submit" value="Add Friend">
+    </form>
+    <h1>These are my friends</h1>
+    <table>
+        <head>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Occupation</th>
+            </tr>
+        </head>
+        <tbody>
+            {% for one_friend in friends %}
+            <tr>
+                <td> {{one_friend.first_name}} </td>
+                <td> {{one_friend.last_name}} </td>
+                <td> {{one_friend.occupation}} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    <h1>All My Friends</h1>
+    {% for one_friend in all_friends %}
+        <p>First Name:{{one_friend.first_name}}</p>
+        <p>Last Name: {{one_friend.last_name}}</p>
+        <p>Occupation: {{one_friend.occupation}}</p>
+    <hr>
+    {% endfor %}
+    </table>
+</body>
+</html>
