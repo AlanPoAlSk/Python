@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors Section AS</title>
+</head>
+<body style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0nXzUnfbHpPIfmbDABZCjyZemxUqFmh1Evg&usqp=CAU');">
+    <div style="display: flex; justify-content: space-around;margin-top: 40px;">
+        <div class="left" style="border: 2px solid lavenderblush; background-color: lightgray;height: 400px;width: 500px;">
+            <div>
+                <h1 style="text-align: center;">New Author</h1>
+            </div>
+            <form action="/authors/create" method="POST">
+                <div style="padding-top: 20px;">
+                    <label for="name" style="margin-left: 5px; font-size: 1.4rem;">Name :</label>
+                    <input type="text" name="name" style="width: 350px;height: 30px;">
+                </div>
+                <div style="margin: 50px 0px 0px 75px;">
+                    <button style="height: 30px;width: 90px; color: blue;font-size: larger;">Create</button>
+                </div>
+            </form>
+        </div>
+        <div class="right" style="border: 2px solid lavenderblush; background-color: lightgrey;height: 500px; width: 500px;">
+            <div>
+                <h1 style="text-align: center;">All Authors</h1>
+            </div>
+            <div>
+                <ul>
+                    {% for author in authors %}
+                        <li style="list-style: none;font-size: x-large;margin-top: 10px;"> <a href="/authors/{{author.id}}" style="text-decoration: none;color: blue;">{{author.name}}</a> </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+                <button style="height: 40px;width: 100px;background-color: darkblue;margin-left: 40px;"><a href="/books" style="color: whitesmoke;font-size: larger;text-decoration: none;">Add Book</a></button>
+            </div>
+        </div>
+    </div>
+    <button style="margin-left:  280px;height: 60px; width: 150px;"><a href="/" style="font-size: xx-large;text-decoration: none;color: blue;">Home</a></button>
+</body>
+</html>

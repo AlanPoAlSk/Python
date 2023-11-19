@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Fav AS</title>
+</head>
+<body>
+    <div class="cont" style="display: flex; justify-content: space-around;">
+        <div class="left">
+            <div>
+                <h1> {{author.name}} favorites</h1>
+            </div>
+            <table>
+                <tr>
+                    <th style="border: 2px solid black;">Title</th>
+                    <th style="border: 2px solid black;"># of pages</th>
+                </tr>
+                {% for book in author.fav_books %}
+                <tr>
+                    <td style="border: 2px solid black;">{{book.title}}</td>
+                    <td style="border: 2px solid black;"># {{book.num_of_pages}}</td>
+                </tr>
+                    {% endfor %}
+            </table>
+            <button style="margin-top: 20px;"><a href="/">Home</a></button>
+        </div>
+        <div class="right">
+            <div>
+                <h1>Add Author's Favorite</h1>
+            </div>
+            <div>
+                <label for="book">Book:</label>
+            <select name="list" id="books">
+                {% for book in author.fav_books %}
+                    <option value="title"> {{book.title}} </option>
+                {% endfor %}
+            </select>
+            </div>
+            <div>
+                <button style="margin-top: 20px;">Add</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book favor AS</title>
+</head>
+<body>
+    <div class="cont" style="display: flex; justify-content: space-around;">
+        <div class="left">
+            <div>
+                <h1>Title :  {{name}}</h1>
+            </div>
+            <h3>Favorited by :</h3>
+            <ul>
+                {% for author in fav_book_for_authors %}
+                    <li>{{author.name}}</li>
+                {% endfor %}
+            </ul>
+            <button><a href="/">Home</a></button>
+        </div>
+        <div class="right">
+            <div>
+                <h1>Add Author's Favorite</h1>
+            </div>
+            <div>
+            </select>
+            </div>
+            <div>
+                <button>Add</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

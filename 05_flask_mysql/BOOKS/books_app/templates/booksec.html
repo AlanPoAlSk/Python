@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Section AS</title>
+</head>
+<body>
+    <body style="background-image: url('https://media1.thehungryjpeg.com/thumbs/800_4213902_f6ovlaa4n8ntcuqdskiwgs03pjpxzynrolkqugts.jpg');">
+        <div style="display: flex; justify-content: space-around;margin-top: 40px;">
+            <div class="left" style="border: 2px solid lavenderblush; background-color: lightgray;height: 400px;width: 500px;">
+                <div>
+                    <h1 style="text-align: center;">New Book</h1>
+                </div>
+                <form action="/books/create" method="POST">
+                    <div style="padding-top: 20px;">
+                        <label for="name" style="margin-left: 5px; font-size: 1.4rem;">Title :</label>
+                        <input type="text" name="title" style="width: 350px;height: 30px;">
+                    </div>
+                    <div style="padding-top: 20px;">
+                        <label for="name" style="margin-left: 5px; font-size: 1.4rem;">Number of pages :</label>
+                        <input type="text" name="num_of_pages" style="width: 250px;height: 30px;">
+                    </div>
+                    <div style="margin: 50px 0px 0px 75px;">
+                        <button style="height: 30px;width: 90px; color: blue;font-size: larger;">Create</button>
+                    </div>
+                </form>
+            </div>
+            <div class="right" style="border: 2px solid lavenderblush; background-color: lightgrey;height: 500px; width: 500px;">
+                <div>
+                    <h1 style="text-align: center;">All Books</h1>
+                </div>
+                <div>
+                    <ul>
+                        {% for book in books %}
+                            <li style="list-style: none;font-size: x-large;margin-top: 10px;"> <a href="/books/{{book.id}}" style="text-decoration: none;color: blue;">{{book.title}}</a> </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+        <button style="margin-left:  280px;height: 60px; width: 150px;"><a href="/" style="font-size: xx-large;text-decoration: none;color: blue;">Home</a></button>
+</body>
+</html>
