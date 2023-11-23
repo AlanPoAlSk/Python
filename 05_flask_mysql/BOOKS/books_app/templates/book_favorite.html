@@ -9,26 +9,34 @@
     <div class="cont" style="display: flex; justify-content: space-around;">
         <div class="left">
             <div>
-                <h1>Title :  {{name}}</h1>
+                <h1>Title :  {{book.title}}</h1>
             </div>
             <h3>Favorited by :</h3>
             <ul>
-                {% for author in fav_book_for_authors %}
+                {% for author in book.authors_fav_books %}
                     <li>{{author.name}}</li>
                 {% endfor %}
             </ul>
             <button><a href="/">Home</a></button>
         </div>
         <div class="right">
-            <div>
-                <h1>Add Author's Favorite</h1>
-            </div>
-            <div>
-            </select>
-            </div>
-            <div>
-                <button>Add</button>
-            </div>
+            <form action="/author/join" method="POST">
+                <div>
+                    <h1>Add Author's Favorite</h1>
+                    <input type="hidden" name="book_id" value="{{book.id}}">
+                </div>
+                <div>
+                    <label for="author_id">Author:</label>
+                    <select name="author_id">
+                        {% for author in unf_authors %}
+                            <option value="{{author.id}}"> {{author.name}} </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <button type="submit">Add</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>

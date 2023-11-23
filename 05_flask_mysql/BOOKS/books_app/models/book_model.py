@@ -27,8 +27,8 @@ class Book():
         query = """
             SELECT * FROM books
         """
-        results = connectToMySQL('books_authors_db').query_db(query)
         all_books = []
+        results = connectToMySQL('books_authors_db').query_db(query)
         
         for row in results :
             new_class = cls(row)
@@ -47,20 +47,20 @@ class Book():
         """
         results = connectToMySQL('books_authors_db').query_db(query,data)
         if results:
-            author = cls(results[0])
+            book = cls(results[0])
             for row in results:
                 
-                author_data = {
+                data = {
                     "id" : row["authors.id"],
                     "name" : row["name"],
                     "created_at" : row["authors.created_at"],
                     "updated_at" : row["authors.updated_at"]
                 }
-                author.authors_fav_books.append( author_model.Author( author_data ) )
-            return author
+                book.authors_fav_books.append( author_model.Author(data) )
+            return book
     
     @classmethod
-    def create_book(cls,form):
+    def create_book(cls,data):
         
         query = """
             INSERT INTO books (title , num_of_pages)
@@ -68,7 +68,7 @@ class Book():
             (%(title)s , %(num_of_pages)s)
         """
         
-        return connectToMySQL('books_authors_db').query_db(query,form)
+        return connectToMySQL('books_authors_db').query_db(query,data)
     
     @classmethod
     def connect_author_to_books(cls,data):
@@ -92,3 +92,20 @@ class Book():
                 }
                 book.authors_fav_books.append( author_model.Author( author_data ) )
             return book
+        
+        
+    @classmethod
+    def not_favorite_books(cls,data):
+        
+        query = """
+            SELECT * FROM books 
+            WHERE books.id NOT IN (SELECT book_id FROM favorites WHERE author_id = %(id)s)
+        """
+        
+        results = connectToMySQL('books_authors_db').query_db(query,data)
+        books = []
+        for row in results:
+            books.append(cls(row))
+        
+        return books
+        

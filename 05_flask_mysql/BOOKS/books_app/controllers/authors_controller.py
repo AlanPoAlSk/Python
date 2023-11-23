@@ -6,7 +6,9 @@ from books_app import app
 from books_app.models.author_model import Author
 from books_app.models.book_model import Book
 
-
+@app.route('/')
+def homepage():
+    return render_template('homepage.html')
 
 @app.route('/authors')
 def all_authors():
@@ -15,9 +17,12 @@ def all_authors():
     return render_template('authorsec.html', authors = authors)
 
 
-@app.route('/authors/create', methods = ['POST'])
+@app.route('/author/create', methods = ['POST'])
 def create_author():
-    Author.create_author(request.form)
+    data = {
+        'name': request.form['name']
+    }
+    author_id = Author.create_author(request.form)
     
     return redirect('/authors')
 
@@ -27,7 +32,16 @@ def author_book(id):
         'id': id
     }
     author = Author.show_one(data)
-    book = Book.connect_author_to_books(data)
+    unf_books = Book.not_favorite_books(data)
     
-    return render_template('author_favorite.html', author = author ,book = book )
+    return render_template('author_favorite.html', author = author ,unf_books = unf_books )
+
+@app.route('/book/join', methods = ['POST'])
+def book_join():
+    data = {
+        'author_id':request.form['author_id'],
+        'book_id':request.form['book_id']
+    }
+    Author.favorite_add(data)
+    return redirect(f"/authors/{request.form['author_id']}")
 
