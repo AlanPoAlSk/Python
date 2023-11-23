@@ -1,0 +1,52 @@
+1. create 3 new dojos
+
+    Dojo.objects.create(name = 'A', city = 'Chicago', state = 'IL')
+    Dojo.objects.create(name = 'B', city = 'Washington', state = 'DC')
+    Dojo.objects.create(name = 'C', city = 'Burbank', state = 'CA')
+
+2. delete the 3 dojos you just created
+
+    Dojo.objects.all().delete()
+
+3. create 3 more dojos
+
+    Dojo.objects.create(name = 'D', city = 'Atlanta', state = 'GA')
+    Dojo.objects.create(name = 'E', city = 'Los Angeles', state = 'CA')
+    Dojo.objects.create(name = 'F', city = 'Philadelphia', state = 'PA')
+
+4. create 3 ninjas that belong to the first dojo
+
+    one_ninja = Ninja.objects.create(first_name = 'Alan', last_name = 'Sk', dojo = Dojo.objects.get(id = 4))
+    one_ninja = Ninja.objects.create(first_name = 'Sam', last_name = 'Uei', dojo = Dojo.objects.get(id = 4))
+    one_ninja = Ninja.objects.create(first_name = 'Tim', last_name = 'Uork', dojo = Dojo.objects.get(id = 4))
+
+5. create 4 ninjas that belong to the second dojo
+
+    one_ninja = Ninja.objects.create(first_name = 'Ben', last_name = 'Kot', dojo = Dojo.objects.get(id = 5))
+    one_ninja = Ninja.objects.create(first_name = 'Pete', last_name = 'Park', dojo = Dojo.objects.get(id = 5))
+    one_ninja = Ninja.objects.create(first_name = 'Jo', last_name = 'Fish', dojo = Dojo.objects.get(id = 5))
+
+6. create 3 ninjas that belong to the third dojo
+
+    one_ninja = Ninja.objects.create(first_name = 'Mark', last_name = 'Lens', dojo = Dojo.objects.get(id = 6))
+    one_ninja = Ninja.objects.create(first_name = 'Ol', last_name = 'Hut', dojo = Dojo.objects.get(id = 6))
+    one_ninja = Ninja.objects.create(first_name = 'Jiben', last_name = 'Prais', dojo = Dojo.objects.get(id = 6))
+
+7. retrieve all the ninjas from the first dojo
+
+    dojo = Dojo.objects.get(id=4)
+    dojo.ninjas.all()
+
+8. retrieve all the ninjas from the last dojo
+
+    dojo = Dojo.objects.get(id=6)
+    dojo.ninjas.all()
+
+9. retrieve the last ninja's dojo
+
+    ninja = Ninja.objects.get(id = 9)
+    ninja.dojo
+
+10. create a new dojo
+
+    Dojo.objects.create(name = 'O', city = 'Online', state = 'OO', desc = 'new dojo')
